@@ -3,3 +3,9 @@ dist/
 .env
 coverage/
 *.log
+
+postman/postman/
+postman/.postman/
+
+postman/postman/
+postman/.postman/
