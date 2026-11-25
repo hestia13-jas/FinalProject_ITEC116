@@ -1,0 +1,46 @@
+erDiagram
+  USERS {
+    int UserID PK
+    varchar FullName
+    varchar Email
+    varchar PasswordHash
+    varchar Role
+    datetime CreatedAt
+    datetime UpdatedAt
+  }
+  GUIDE_PROFILES {
+    int id PK
+    text Bio
+    varchar LicenseNumber
+    varchar Availability
+    int UserID FK
+    datetime createdAt
+    datetime updatedAt
+  }
+  LANGUAGES {
+    int id PK
+    varchar LanguageName
+    datetime createdAt
+    datetime updatedAt
+  }
+  GUIDE_LANGUAGES {
+    int id PK
+    int GuideID FK
+    int LanguageID FK
+    datetime createdAt
+    datetime updatedAt
+  }
+  BOOKINGS {
+    int id PK
+    datetime TourDate
+    varchar Status
+    int UserID FK
+    int GuideID FK
+    datetime createdAt
+    datetime updatedAt
+  }
+  USERS ||--o{ GUIDE_PROFILES : has
+  GUIDE_PROFILES ||--o{ GUIDE_LANGUAGES : has
+  LANGUAGES ||--o{ GUIDE_LANGUAGES : has
+  USERS ||--o{ BOOKINGS : has
+  GUIDE_PROFILES ||--o{ BOOKINGS : has
